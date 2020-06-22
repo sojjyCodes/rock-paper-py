@@ -39,5 +39,3 @@ while goOn:
         print('********Next Turn**********')
         print("Player: ", playersPoint)
         print("Computer: ", computersPoint)
-
-    computer = game[randint(0,2)]
