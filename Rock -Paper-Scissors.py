@@ -1,41 +1,36 @@
 from random import randint
+
+#create a list of play options
 game = ["Rock", "Paper", "Scissors"]
 
-computer = game[randint(0, 2)]
-playersPoint = 0
-computersPoint = 0
+#assign a random play to the computer
+computer = game[randint(0,2)]
 
-goOn = True
-while goOn:
-    player = input("Rock, Paper, Scissors? or  enter Finish to end!\n")
-    if player == 'Finish':
-        goOn = False
-    elif(player == computer):
-        print("Tie")
-    elif(player == "Rock"):
+#set player to False
+player = False
+
+while player == False:
+#set player to True
+    player = input("Rock, Paper, Scissors?")
+    if player == computer:
+        print("Tie!")
+    elif player == "Rock":
         if computer == "Paper":
             print("You lose!", computer, "covers", player)
-            computersPoint = computersPoint + 1
         else:
-                print("You win!", player, "smashes", computer)
-                playersPoint = playersPoint + 1
-    elif(player == "Paper") :
-        if(computer == "Scissors"):
-            print("You loose!", computer, "cuts", player)
-            computersPoint = computersPoint + 1
+            print("You win!", player, "smashes", computer)
+    elif player == "Paper":
+        if computer == "Scissors":
+            print("You lose!", computer, "cut", player)
         else:
             print("You win!", player, "covers", computer)
-            playersPoint = playersPoint + 1
-    elif(player == "Scissors"):
-        if(computer == "Rock"):
-            print("You loose!", computer, "smashes", player)
-            computersPoint = computersPoint + 1
+    elif player == "Scissors":
+        if computer == "Rock":
+            print("You lose...", computer, "smashes", player)
         else:
-            print("You win", player, "cuts", computer)
-            computersPoint = computersPoint + 1
+            print("You win!", player, "cut", computer)
     else:
-        print("That is not a valid play. Check your spelling!")
-        computer = game[randint(0,2)]
-        print('********Next Turn**********')
-        print("Player: ", playersPoint)
-        print("Computer: ", computersPoint)
+        print("That's not a valid play. Check your spelling!")
+    #player was set to True, but we want it to be False so the loop continues
+    player = False
+    computer = game[randint(0,2)]
